@@ -4,8 +4,9 @@ import axios from 'axios'
 
 // Moved to setJwt function to avoid bi-directional dependencies
 // axios.defaults.headers.common['x-auth-token'] = auth.getJwt()
-
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+console.log(axios.defaults.baseURL);
 
 axios.interceptors.response.use(null, error => {
 

@@ -18,6 +18,7 @@ const Form = (props) => {
     // return Object.keys(errors).length===0? {}:errors
 
     //*Validate with Joi
+
     const options={abortEarly:false}
     const result=Joi.validate(data, schema, options)
     if (!result.error) return null

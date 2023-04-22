@@ -5,6 +5,11 @@ const TableBody = ({data, columns}) => {
   const renderCell=(item, columns)=>{
     if (columns.content) 
       return columns.content(item)
+    if (columns.path==='isGold' || columns.path==='customer.isGold'){
+      console.log(item, columns.path,_.get(item,columns.path))
+      if (_.get(item,columns.path)) return 'Gold Membership'
+      return 'Standard Membership'
+    }
     return _.get(item, columns.path)
   }
 

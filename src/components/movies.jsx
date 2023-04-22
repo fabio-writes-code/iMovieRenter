@@ -132,6 +132,7 @@ class Movies extends Component {
             items={this.state.genres}
             selectedItem={this.state.selectedGenre}
             onItemSelect={this.handleGenreSelect}
+            customerGroup={false}
           />
         </div>
         <div className="col">

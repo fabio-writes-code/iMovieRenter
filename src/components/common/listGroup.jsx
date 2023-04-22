@@ -4,7 +4,7 @@ import { useState } from "react"
 // output: filter, change list color
 
 const ListGroup = (props) => {
-  const {items:genres,textProperty, valueProperty,selectedItem, onItemSelect}=props
+  const {items:genres,textProperty, valueProperty,selectedItem, onItemSelect, customerGroup}=props
   
   const [currentGenre, setCurrentGenre]=useState(genres[0].name)
 
@@ -16,6 +16,19 @@ const ListGroup = (props) => {
   //   setCurrentGenre(genre.name)
   // }
 
+  const groupSelection = (group) =>{
+    if(customerGroup){
+      for (const k of genres) {
+        if(group[textProperty]==selectedItem[textProperty]) return true
+      }
+    }
+    else{
+      for (const genre of genres) {
+        if(group===selectedItem) return true
+      }
+    }
+  }
+
   return (
     <div>
       <ul className="list-group" style={{cursor:"pointer"}}>
@@ -24,8 +37,9 @@ const ListGroup = (props) => {
           onClick={()=>handleClick('allGenre')}>All Genres
         </li> */}
         {genres.map(g=><li 
-          onClick={()=>onItemSelect(g)} 
-          className={g===selectedItem?'list-group-item active':'list-group-item'} 
+          onClick={()=>onItemSelect(g)}
+          // className={g===selectedItem?'list-group-item active':'list-group-item'}
+          className={groupSelection(g)?'list-group-item active':'list-group-item'} 
           key={g[valueProperty]}>{g[textProperty]}
         </li>)}
       </ul>

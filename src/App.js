@@ -17,8 +17,10 @@ import PrivateRoutes from './components/common/PrivateRoutes';
 // import 'react-toastify/dist/react-toastify/css'
 
 // Css 
-import './App.css';
+import './App.scss';
 import Logout from './components/Logout';
+import CustomerForm from './components/CustomerForm';
+import RentalsForm from './components/RentalsForm';
 
 
 function App() {
@@ -41,8 +43,8 @@ function App() {
     //get the user from authService and update the state
     const user = auth.getCurrentUser()
 
-    console.log(user)
-    
+    // console.log(user)
+
     setUser(user)
     // } catch (ex) { }
   }, [])
@@ -58,12 +60,14 @@ function App() {
           <Route path='logout' element={<Logout />} />
           <Route path='register' element={<RegisterForm />} />
           <Route element={<PrivateRoutes />}>
+            <Route path='customers/:id' element={<CustomerForm />} />
+            <Route path='rentals/:id' element={<RentalsForm />} />
             <Route path='movies/:id' element={<MovieForm />} exact />
+            <Route path='customers' element={<Customers user={user} />} exact />
           </Route>
           {/* <Route path='movies/:id' element={<MovieForm />} /> */}
           <Route path='/movies' element={<Movies user={user} />} />
-          <Route path='/customers' element={<Customers />} />
-          <Route path='/rentals' element={<Rentals />} />
+          <Route path='/rentals' element={<Rentals user={user} />} />
           <Route path='/' element={<Navigate to="/movies" />} />
           <Route path='not-found' element={<NotFound />} />
         </Routes>
