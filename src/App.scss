@@ -20,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #16181d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,4 +41,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.logo-main{
+  width: 15rem;
+  height: 2.5rem;
+  object-fit: cover;
 }

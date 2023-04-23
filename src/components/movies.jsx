@@ -16,7 +16,7 @@ import {toast} from 'react-toastify'
 class Movies extends Component {
   state = {
     movies:[],
-    pageSize:4,
+    pageSize:6,
     currentPage:1,
     genres:[],
     sortColumn:{path:'title',order:'asc'},

@@ -1,12 +1,13 @@
 import React from "react"
 import { NavLink, Link } from "react-router-dom"
+import logo from '../iRentals-logo.png'
 
 
 
 const NavBar = ({ user }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">iMovieLite</Link>
+      <Link className="navbar-brand" to="/"><img className="logo-main" src={logo} alt="logo" /></Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
